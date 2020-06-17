@@ -1,9 +1,9 @@
-var Heros = require('./heros.controller');
+var users = require('./heros.controller');
 
-module.exports = function(router) {
-    router.post('/create', Heros.createHero);
-    router.get('/get', Heros.getHeros);
-    router.get('/get/:name', Heros.getHero);
-    router.put('/update/:id', Heros.updateHero);
-    router.delete('/remove/:id', Heros.removeHero);
+module.exports = function (router) {
+    router.post('/create', users.createuser);
+    router.get('/get', users.getuser);
+    router.get('/get/:firstname', users.getuser);
+    router.put('/update/:id', users.updateuser);
+    router.delete('/remove/:id', users.removeuser);
 }

@@ -1,75 +1,81 @@
-var Heros = require('./heros.dao');
+var users = require('./heros.dao');
 
-exports.createHero = function (req, res, next) {
-    var hero = {
-        name: req.body.name,
-        description: req.body.description
+exports.createuser = function (req, res, next) {
+    var user = {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        middlename: req.body.middlename,
+        contact: req.body.contact,
+        Address: req.body.Address
     };
 
-    Heros.create(hero, function(err, hero) {
+    users.create(user, function(err, user) {
         if(err) {
             res.json({
                 error : err
             })
         }
         res.json({
-            message : "Hero created successfully"
+            message : "user created successfully"
         })
     })
 }
 
-exports.getHeros = function(req, res, next) {
-    Heros.get({}, function(err, heros) {
+exports.getuser = function(req, res, next) {
+    users.get({}, function(err, user) {
         if(err) {
             res.json({
                 error: err
             })
         }
         res.json({
-            heros: heros
+            user: user
         })
     })
 }
 
-exports.getHero = function(req, res, next) {
-    Heros.get({name: req.params.name}, function(err, heros) {
+exports.getuser = function(req, res, next) {
+    users.get({firstname: req.params.firstname}, function(err, user) {
         if(err) {
             res.json({
                 error: err
             })
         }
         res.json({
-            heros: heros
+            user: user
         })
     })
 }
 
-exports.updateHero = function(req, res, next) {
-    var hero = {
-        name: req.body.name,
-        description: req.body.description
+exports.updateuser = function(req, res, next) {
+    var user = {
+         firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        middlename: req.body.middlename,
+        contact: req.body.contact,
+        Address: req.body.Address
     }
-    Heros.update({_id: req.params.id}, hero, function(err, hero) {
+    users.update({_id: req.params.id}, user, function(err, user) {
         if(err) {
             res.json({
                 error : err
             })
         }
         res.json({
-            message : "Hero updated successfully"
+            message : "user updated successfully"
         })
     })
 }
 
-exports.removeHero = function(req, res, next) {
-    Heros.delete({_id: req.params.id}, function(err, hero) {
+exports.removeuser = function(req, res, next) {
+    users.delete({_id: req.params.id}, function(err, user) {
         if(err) {
             res.json({
                 error : err
             })
         }
         res.json({
-            message : "Hero deleted successfully"
+            message : "user deleted successfully"
         })
     })
 }

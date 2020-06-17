@@ -1,12 +1,27 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var herosSchema = new Schema({
-    name :{
+var userSchema = new Schema({
+    firstname :{
         type: String,
         unique : false,
         required : true
     },
-    description : {
+    lastname : {
+        type: String,
+        unique : false,
+        required : true
+    },
+    middlename : {
+        type: String,
+        unique : false,
+        required : true
+    },
+    contact : {
+        type: Number,
+        unique : false,
+        required : true
+    },
+    Address: {
         type: String,
         unique : false,
         required : true
@@ -15,4 +30,4 @@ var herosSchema = new Schema({
     timestamps: true
 });
 
-module.exports = herosSchema;
+module.exports = userSchema;

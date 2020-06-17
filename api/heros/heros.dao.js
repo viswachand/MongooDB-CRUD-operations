@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var herosSchema = require('./heros.model');
+var userSchema = require('./heros.model');
 
-herosSchema.statics = {
+userSchema.statics = {
     create : function(data, cb) {
         var hero = new this(data);
         hero.save(cb);
@@ -24,5 +24,5 @@ herosSchema.statics = {
     }
 }
 
-var herosModel = mongoose.model('Heros', herosSchema);
-module.exports = herosModel;
+var userModel = mongoose.model('User', userSchema);
+module.exports = userModel;
